@@ -670,12 +670,10 @@ systemctl stop $STOPWEBSERVER
 systemctl stop nginx
 curl https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
-/root/.acme.sh/acme.sh --register-account -m rmbl@slowapp.cfd
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-chmod 777 /etc/xray/xray.key  
 systemctl restart nginx
 systemctl restart xray
 menu
@@ -1050,15 +1048,15 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1  $NC$COLBG1               ${WH}• VPS SETTING •                 $COLOR1  $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e " $COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}CHANGE DOMAIN     ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}HANGE BANNER"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}SPEEDTEST         ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}INSTALL ADBLOCK"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}AUTO REBOOT       ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}CHANGE  BOT INFO"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}CHECK BANDWITH    ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}FIX NGINX OFF"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}INSTALL WEBMIN    ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}CEK PERFORMA VPS"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}INSTALL TCP BBR   ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}CHANGE CORE MENU"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}GANTI TEMA WARNA  ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}BOT DO MENU"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}LIMIT SPEED       ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}ANTI NAMA CLIENT"
-echo -e " $COLOR1 $NC${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}BENCHMARK         ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}}CLEAR RAM CACHE"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}CHANGE DOMAIN     ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}HANGE BANNER"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}SPEEDTEST         ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}INSTALL ADBLOCK"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}AUTO REBOOT       ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}CHANGE  BOT INFO"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}CHECK BANDWITH    ${WH}[${COLOR1}12${WH}]${NC} ${COLOR1}• ${WH}FIX NGINX OFF"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}INSTALL WEBMIN    ${WH}[${COLOR1}13${WH}]${NC} ${COLOR1}• ${WH}CEK PERFORMA VPS"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}INSTALL TCP BBR   ${WH}[${COLOR1}14${WH}]${NC} ${COLOR1}• ${WH}CHANGE CORE MENU"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}GANTI TEMA WARNA  ${WH}[${COLOR1}15${WH}]${NC} ${COLOR1}• ${WH}BOT DO MENU"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}LIMIT SPEED       ${WH}[${COLOR1}16${WH}]${NC} ${COLOR1}• ${WH}ANTI NAMA CLIENT"
+echo -e " $COLOR1 $NC${WH}[${COLOR1}17${WH}]${NC} ${COLOR1}• ${WH}BENCHMARK         ${WH}[${COLOR1}99${WH}]${NC} ${COLOR1}• ${WH}}CLEAR RAM CACHE"
 echo -e " $COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 echo -e " $COLOR1┌───────────────────────────────────────────────┐${NC}"
