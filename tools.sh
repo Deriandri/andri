@@ -42,7 +42,7 @@ apt-get install nodejs -y
 apt -y install vnstat
 /etc/init.d/vnstat restart
 apt -y install libsqlite3-dev
-wget https://raw.githubusercontent.com/sehuadri/new/main/vnstat-2.6.tar.gz
+wget https://raw.githubusercontent.com/Deriandri/andri/main/vnstat-2.6.tar.gz
 tar zxvf vnstat-2.6.tar.gz
 cd vnstat-2.6
 ./configure --prefix=/usr --sysconfdir=/etc && make && make install
