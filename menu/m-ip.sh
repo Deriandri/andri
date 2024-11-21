@@ -58,8 +58,8 @@ USER="nishikazekazata"
 
 add-ip() {
 TIMES="10"
-CHATID="6617783693"
-KEY="6751589620:AAHwjP6dzZhuqeyUOdYFc6742Q1YUVF1EjM"
+CHATID="1170565452"
+KEY="6802124713:AAGWlHkXFkA5TYkYnpyFSCyz2YLDfIYBYFQ"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 
 
@@ -159,8 +159,8 @@ curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$T
 
 del-ip() {
 TIMES="10"
-CHATID="5808979739"
-KEY="6611280645:AAHnxzRfG79ulaol1kVgw4Sj1qZplQHY1hs"
+CHATID="1170565452"
+KEY="7283353449:AAFmuwAI6JquaTV8pJ_2cIYG3KJNc3g7ovk"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 
     rm -rf /root/ipvps
@@ -230,7 +230,7 @@ curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$T
 
 renew-ip() {
 TIMES="10"
-CHATID="5808979739"
+CHATID="1170565452"
 KEY="6611280645:AAHnxzRfG79ulaol1kVgw4Sj1qZplQHY1hs"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 
