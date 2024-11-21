@@ -14,7 +14,7 @@ LIGHT='\033[0;37m'
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/awanklod/izin_new/main/ip | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
@@ -26,7 +26,7 @@ fi
 # By Akbar Maulana
 # ==================================================
 # Link Hosting Kalian
-cloudvpn="raw.githubusercontent.com/sehuadri/new/main/install"
+cloudvpn="raw.githubusercontent.com/Deriandri/andri/main/install"
 
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
