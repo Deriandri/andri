@@ -57,7 +57,7 @@ Button.inline(" SETTING ","setting")],
 **»✨ XRAY TROJAN  :** `{trj.strip()}` __account__
 **»✨ NOOBZVPNS   :** `{noobz.strip()}` __account__
 **»✨ TROJAN-GO   :** `{trgo.strip()}` __account__
-**»🤖@AMIQYU**
+**»🤖@**
 ✧◇───────────────────◇✧ 
 """
 		x = await event.edit(msg,buttons=inline)
