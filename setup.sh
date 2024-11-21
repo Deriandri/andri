@@ -1,7 +1,7 @@
 #!/bin/bash
 function CEKIP () {
 MYIP=$(curl -sS ipv4.icanhazip.com)
-IPVPS=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_new/main/ip | grep $MYIP | awk '{print $4}')
+IPVPS=$(curl -sS https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip | grep $MYIP | awk '{print $4}')
 if [[ $MYIP == $IPVPS ]]; then
 domain
 Casper2
@@ -88,7 +88,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "1 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/awanklod/izin_new/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip >/dev/null 2>&1
 echo "### $author $hhari $MYIP @trial" >> ipmini
 sleep 1
 rm -rf .git
@@ -137,7 +137,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "30 days" +"%Y-%m-%d")
 mkdir /root/rmbl
 cd /root/rmbl
-wget https://raw.githubusercontent.com/awanklod/izin_new/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip >/dev/null 2>&1
 
 echo "### $author $hhari $MYIP @RMBL" >> ipmini
 
@@ -168,7 +168,7 @@ USERGIT=$(cat /etc/github/username)
 hhari2=$(date -d "999 days" +"%Y-%m-%d")
 mkdir /root/rmbl
 cd /root/rmbl
-wget https://raw.githubusercontent.com/awanklod/izin_new/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip >/dev/null 2>&1
 
 sed -i "/# VIP/a ### ${author2} ${hhari2} ${MYIP2} ON 999 VIP" /root/rmbl/ipmini
 
@@ -199,7 +199,7 @@ USERGIT=$(cat /etc/github/username)
 hhari3=$(date -d "999 days" +"%Y-%m-%d")
 mkdir /root/rmbl
 cd /root/rmbl
-wget https://raw.githubusercontent.com/awanklod/izin_new/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip >/dev/null 2>&1
 
 sed -i "/# RESELLER/a ### ${author3} ${hhari3} ${MYIP3} ON 999" /root/rmbl/ipmini
 
@@ -229,7 +229,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
 mkdir /root/rmbl
 cd /root/rmbl
-wget https://raw.githubusercontent.com/awanklod/izin_new/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
 sed -i "/# RESELLER/a ### ${author} ${hhari} ${MYIP} ${ADMIN} ${TOTALIP}" /root/rmbl/ipmini
 else
@@ -302,11 +302,11 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-wget https://raw.githubusercontent.com/sehuadri/new/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
 clear
 }
 res2() {
-wget https://raw.githubusercontent.com/sehuadri/new/main/slowdns/rmbl2.sh && chmod +x rmbl2.sh && ./rmbl2.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/slowdns/rmbl2.sh && chmod +x rmbl2.sh && ./rmbl2.sh
 clear
 }
 res3() {
@@ -620,7 +620,7 @@ EOF
 #apt install nodejs -y
 #apt install npm -y
 #npm install express
-#wget https://raw.githubusercontent.com/sehuadri/new/main/install/ins-botwa.sh && chmod +x ins-botwa.sh && ./ins-botwa.sh
+#wget https://raw.githubusercontent.com/Deriandri/andri/main/install/ins-botwa.sh && chmod +x ins-botwa.sh && ./ins-botwa.sh
 #cd
 #clear
 #}
@@ -629,7 +629,7 @@ cd
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/sehuadri/new/main/tools.sh &> /dev/null
+wget https://raw.githubusercontent.com/Deriandri/andri/main/tools.sh &> /dev/null
 chmod +x tools.sh 
 bash tools.sh
 clear
@@ -643,56 +643,56 @@ function Casper3(){
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}  PROCESS INSTALLED SSH & OVVPN         ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}       PROCESS INSTALLED XRAY           ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}      PROCESS INSTALLED WEBSOCKET SSH   ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}      PROCESS INSTALLED BACKUP MENU     ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}          PROCESS INSTALLED OHP         ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}          DOWNLOAD EXTRA MENU           ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}           DOWNLOAD SLOW DNS            ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
 clear
 
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}          DOWNLOAD UDP COSTUM           ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
 clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}    PROCESS INSTALLED NOOBZVPNS         ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-wget https://raw.githubusercontent.com/sehuadri/new/main/noobz/noobzvpns.zip
+wget https://raw.githubusercontent.com/Deriandri/andri/main/noobz/noobzvpns.zip
 unzip noobzvpns.zip
 chmod +x noobzvpns/*
 cd noobzvpns
@@ -704,14 +704,14 @@ clear
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}    PROCESS INSTALLED LIMIT XRAY        ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-#wget https://raw.githubusercontent.com/sehuadri/new/main/bin/limit.sh && chmod +x limit.sh && ./limit.sh
+#wget https://raw.githubusercontent.com/Deriandri/andri/main/bin/limit.sh && chmod +x limit.sh && ./limit.sh
 #clear
 
 echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
 echo -e "${BIBlue}│ ${BGCOLOR}    PROCESS INSTALLED TROJAN-GO         ${NC}${BIBlue} │${NC}"
 echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-#wget https://raw.githubusercontent.com/sehuadri/new/main/install/ins-trgo.sh && chmod +x ins-trgo.sh && ./ins-trgo.sh
-wget -q -O /etc/crontab "https://raw.githubusercontent.com/sehuadri/new/main/install/crontab" && chmod 644 /etc/crontab
+#wget https://raw.githubusercontent.com/Deriandri/andri/main/install/ins-trgo.sh && chmod +x ins-trgo.sh && ./ins-trgo.sh
+wget -q -O /etc/crontab "https://raw.githubusercontent.com/Deriandri/andri/main/install/crontab" && chmod 644 /etc/crontab
 clear
 }
 
@@ -728,7 +728,7 @@ TIME=$(date +'%Y-%m-%d %H:%M:%S')
 RAMMS=$(free -m | awk 'NR==2 {print $2}')
 MODEL2=$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')
 MYIP=$(curl -sS ipv4.icanhazip.com)
-IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_new/main/ip | grep $MYIP | awk '{print $3}' )
+IZIN=$(curl -sS https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip | grep $MYIP | awk '{print $3}' )
 d1=$(date -d "$IZIN" +%s)
 d2=$(date -d "$today" +%s)
 EXP=$(( (d1 - d2) / 86400 ))
@@ -783,7 +783,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/sehuadri/new/main/versi  )
+serverV=$( curl -sS https://raw.githubusercontent.com/Deriandri/andri/main/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
