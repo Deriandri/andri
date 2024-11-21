@@ -1,6 +1,6 @@
 #!/bin/bash
 #installer Websocker tunneling 
-url="https://raw.githubusercontent.com/sehuadri/new/main"
+url="https://raw.githubusercontent.com/Deriandri/andri/main"
 cd
 
 #Install Script Websocket-SSH Python
