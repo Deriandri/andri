@@ -4,7 +4,7 @@ apt update -y && apt upgrade -y
 apt install python3 python3-pip git -y
 apt-get install libjpeg-dev zlib1g-dev -y
 cd /etc/
-wget https://raw.githubusercontent.com/sehuadri/new/main/dobot/dobot.zip
+wget https://raw.githubusercontent.com/Deriandri/andri/main/dobot/dobot.zip
 unzip dobot.zip
 cd dobot
 pip3 install -r /etc/dobot/requirements.txt
