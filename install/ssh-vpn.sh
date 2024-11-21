@@ -76,7 +76,7 @@ apt-get remove --purge exim4 -y
 
 #install jq
 apt -y install jq
-apt install sysstat -y
+#apt install sysstat -y
 
 #install shc
 apt -y install shc
@@ -377,15 +377,6 @@ service cron restart >/dev/null 2>&1
 service cron reload >/dev/null 2>&1
 service cron start >/dev/null 2>&1
 
-# remove unnecessary files
-sleep 1
-echo -e "[ ${green}INFO$NC ] Clearing trash"
-apt autoclean -y >/dev/null 2>&1
-
-if dpkg -s unscd >/dev/null 2>&1; then
-apt -y remove --purge unscd >/dev/null 2>&1
-fi  
-
 cd
 chown -R www-data:www-data /home/vps/public_html
 
@@ -393,5 +384,6 @@ rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/ssh-vpn.sh
 rm -f /root/bbr.sh
+rm -rf /etc/apache2
 
 clear
