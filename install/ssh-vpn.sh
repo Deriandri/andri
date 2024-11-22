@@ -29,6 +29,7 @@ email=none
 curl -sS https://raw.githubusercontent.com/Deriandri/andri/main/install/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
+sudo apt install iptables-persistent netfilter-persistent
 # go to root
 cd
 
@@ -76,7 +77,7 @@ apt-get remove --purge exim4 -y
 
 #install jq
 apt -y install jq
-#apt install sysstat -y
+apt install sysstat -y
 
 #install shc
 apt -y install shc
@@ -199,8 +200,25 @@ apt -y install squid3
 
 # install squid for debian 11
 apt -y install squid
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/RMBL-VPN/v/install/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Deriandri/andri/main/install/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
+
+# setting vnstat
+apt -y install vnstat
+/etc/init.d/vnstat restart
+apt -y install libsqlite3-dev
+wget https://raw.githubusercontent.com/Deriandri/andri/main/main/vnstat-2.6.tar.gz
+tar zxvf vnstat-2.6.tar.gz
+cd vnstat-2.6
+./configure --prefix=/usr --sysconfdir=/etc && make && make install
+cd
+vnstat -u -i $NET
+sed -i 's/Interface "'""eth0""'"/Interface "'""$NET""'"/g' /etc/vnstat.conf
+chown vnstat:vnstat /var/lib/vnstat -R
+systemctl enable vnstat
+/etc/init.d/vnstat restart
+rm -f /root/vnstat-2.6.tar.gz
+rm -rf /root/vnstat-2.6
 
 cd
 # install stunnel
@@ -246,17 +264,28 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 #OpenVPN
 wget https://raw.githubusercontent.com/Deriandri/andri/main/install/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
+#OpenVPNwebsocket
+#apt install golang-go
+#wget https://raw.githubusercontent.com/Deriandri/andri/main/sshws/ovpn-websocket.sh &&  chmod +x ovpn-websocket.sh && ./ovpn-websocket.sh
+#go run ovpn-websocket.sh
+
+
 # // install lolcat
 wget https://raw.githubusercontent.com/Deriandri/andri/main/install/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
 
 # memory swap 1gb
 #cd
-#dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+#dd if=/dev/zero of=/swapfile bs=1024 count=4194304
 #mkswap /swapfile
 #chown root:root /swapfile
 #chmod 0600 /swapfile >/dev/null 2>&1
 #swapon /swapfile >/dev/null 2>&1
 #sed -i '$ i\/swapfile      swap swap   defaults    0 0' /etc/fstab
+
+# > Singkronisasi jam
+chronyd -q 'server 0.id.pool.ntp.org iburst'
+chronyc sourcestats -v
+chronyc tracking -v
 
 # install fail2ban
 apt -y install fail2ban
@@ -268,11 +297,11 @@ sudo apt-get install tcpdump -y
 sudo apt-get install dsniff -y
 sudo apt install grepcidr -y
 
-#install DDOS
 wget https://github.com/jgmdev/ddos-deflate/archive/master.zip -O ddos.zip
 unzip ddos.zip
 cd ddos-deflate-master
 ./install.sh
+
 
 # banner /etc/issue.net
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
@@ -284,6 +313,27 @@ wget -O /etc/issue.net "https://raw.githubusercontent.com/Deriandri/andri/main/i
 #install bbr dan optimasi kernel
 wget https://raw.githubusercontent.com/Deriandri/andri/main/install/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
+
+#run_ip
+apt install iptables-persistent netfilter-persistent
+
+rm -f /etc/iptables.rules && wget -cO - https://pastebin.com/raw/7yc33jRK > /etc/iptables.rules
+
+iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
+
+iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
+
+iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
+
+
+iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
+
+
+dpkg-reconfigure iptables-persistent
+
+systemctl restart fail2ban
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
@@ -301,26 +351,7 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
-#run_ip
-#apt install iptables-persistent netfilter-persistent
 
-#rm -f /etc/iptables.rules && wget -cO - https://pastebin.com/raw/7yc33jRK > /etc/iptables.rules
-
-#iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
-
-#iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
-
-#iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
-#iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
-
-
-#iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --set
-#iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
-
-
-#dpkg-reconfigure iptables-persistent
-
-#systemctl restart fail2ban
 
 
 # download script
@@ -377,6 +408,15 @@ service cron restart >/dev/null 2>&1
 service cron reload >/dev/null 2>&1
 service cron start >/dev/null 2>&1
 
+# remove unnecessary files
+apt autoclean -y >/dev/null 2>&1
+apt -y remove --purge unscd >/dev/null 2>&1
+apt-get -y --purge remove samba* >/dev/null 2>&1
+apt-get -y --purge remove apache2* >/dev/null 2>&1
+apt-get -y --purge remove bind9* >/dev/null 2>&1
+apt-get -y remove sendmail* >/dev/null 2>&1
+apt autoremove -y >/dev/null 2>&1
+# finishing
 cd
 chown -R www-data:www-data /home/vps/public_html
 
