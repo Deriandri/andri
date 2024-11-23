@@ -10,7 +10,7 @@ WH='\033[1;37m'
 ipsaya=$(wget -qO- ifconfig.me)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/awanklod/izin_new/main/ip"
+data_ip="https://raw.githubusercontent.com/Sotgen/izin_new/refs/heads/main/ip"
 checking_sc() {
 useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
 if [[ $date_list < $useexp ]]; then
@@ -40,7 +40,7 @@ echo -e " OS UBUNTU GA BISA INSTALL MENU INI"
 read -n 1 -s -r -p "  Press any key to Back"
 menu
 else
-wget -q -O /usr/bin/helium "https://raw.githubusercontent.com/sehuadri/new/main/menu/helium" && chmod +x /usr/bin/helium && helium
+wget -q -O /usr/bin/helium "https://raw.githubusercontent.com/Deriandri/andri/main/menu/helium" && chmod +x /usr/bin/helium && helium
 fi
 fi
 }
@@ -72,18 +72,18 @@ echo -e "\033[0;33m]\033[1;37m -\033[1;32m Succes !\033[1;37m"
 tput cnorm
 }
 sldns() {
-wget https://raw.githubusercontent.com/sehuadri/new/main/slowdns/installsl.sh && chmod +x installsl.sh && ./installsl.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/slowdns/installsl.sh && chmod +x installsl.sh && ./installsl.sh
 }
 res1() {
-wget https://raw.githubusercontent.com/sehuadri/new/main/slowdns/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/slowdns/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
 clear
 }
 res2() {
-wget https://raw.githubusercontent.com/sehuadri/new/main/slowdns/rmbl1.sh && chmod +x rmbl1.sh && ./rmbl1.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/slowdns/rmbl1.sh && chmod +x rmbl1.sh && ./rmbl1.sh
 clear
 }
 res3() {
-wget https://raw.githubusercontent.com/sehuadri/new/main/slowdns/rmbl2.sh && chmod +x rmbl2.sh && ./rmbl2.sh
+wget https://raw.githubusercontent.com/Deriandri/andri/main/slowdns/rmbl2.sh && chmod +x rmbl2.sh && ./rmbl2.sh
 clear
 }
 clear
@@ -959,7 +959,7 @@ read -p "   Please select numbers 1-3 or Any Button(BACK) : " dobot
 done
 if [[ $dobot == "1" ]]; then
 clear
-wget https://raw.githubusercontent.com/sehuadri/new/main/dobot/install.sh &> /dev/null
+wget https://raw.githubusercontent.com/Deriandri/andri/main/dobot/install.sh &> /dev/null
 chmod +x install.sh
 bash install.sh
 rm -rf install.sh
