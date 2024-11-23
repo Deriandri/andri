@@ -29,7 +29,7 @@ email=none
 curl -sS https://raw.githubusercontent.com/Deriandri/andri/main/install/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
-sudo apt install iptables-persistent netfilter-persistent
+#sudo apt install iptables-persistent netfilter-persistent
 # go to root
 cd
 
@@ -77,7 +77,7 @@ apt-get remove --purge exim4 -y
 
 #install jq
 apt -y install jq
-apt install sysstat -y
+#apt install sysstat -y
 
 #install shc
 apt -y install shc
@@ -283,9 +283,9 @@ wget https://raw.githubusercontent.com/Deriandri/andri/main/install/lolcat.sh &&
 #sed -i '$ i\/swapfile      swap swap   defaults    0 0' /etc/fstab
 
 # > Singkronisasi jam
-chronyd -q 'server 0.id.pool.ntp.org iburst'
-chronyc sourcestats -v
-chronyc tracking -v
+#chronyd -q 'server 0.id.pool.ntp.org iburst'
+#chronyc sourcestats -v
+#chronyc tracking -v
 
 # install fail2ban
 apt -y install fail2ban
@@ -315,25 +315,25 @@ wget https://raw.githubusercontent.com/Deriandri/andri/main/install/bbr.sh && ch
 
 
 #run_ip
-apt install iptables-persistent netfilter-persistent
+#apt install iptables-persistent netfilter-persistent
 
-rm -f /etc/iptables.rules && wget -cO - https://pastebin.com/raw/7yc33jRK > /etc/iptables.rules
+#rm -f /etc/iptables.rules && wget -cO - https://pastebin.com/raw/7yc33jRK > /etc/iptables.rules
 
-iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
+#iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
 
-iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
+#iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
 
-iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
-iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
-
-
-iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --set
-iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
+#iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
+#iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
 
 
-dpkg-reconfigure iptables-persistent
+#iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --set
+#iptables -I INPUT -p tcp --dport 81 -m state --state NEW -m recent --update --seconds 20 --hitcount 10 -j DROP
 
-systemctl restart fail2ban
+
+#dpkg-reconfigure iptables-persistent
+
+#systemctl restart fail2ban
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
