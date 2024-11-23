@@ -722,7 +722,7 @@ function iinfo(){
 domain=$(cat /etc/xray/domain)
 TIMES="10"
 CHATID="1170565452" 
-KEY="7283353449:AAFmuwAI6JquaTV8pJ_2cIYG3KJNc3g7ovk"
+KEY="7312342618:AAEMCWrjFlrJqRs9atEvt_-7pM7R9dCoKuA"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 ISP=$(cat /etc/xray/isp)
 CITY=$(cat /etc/xray/city)
