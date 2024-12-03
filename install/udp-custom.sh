@@ -14,6 +14,7 @@ wget -q -O /etc/udp/udp-custom "https://raw.githubusercontent.com/Azigaming404/A
 
 echo downloading default config
 wget -q -O /etc/udp/config.json "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/udp/config.json" && chmod 644 /etc/udp/config.json
+
 if [ -z "$1" ]; then
 cat <<EOF > /etc/systemd/system/udp-custom.service
 [Unit]
