@@ -8,6 +8,9 @@ apt install netfilter-persistent -y
 apt-get remove --purge ufw firewalld -y
 apt install -y screen curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential -y
 
+# Link Hosting Kalian Untuk Stunnel5
+lynzvpnnnn="raw.githubusercontent.com/LynzVPN/idn/main/stunnel5"
+
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
 MYIP=$(wget -qO- ipinfo.io/ip);
@@ -222,7 +225,6 @@ rm -rf /root/vnstat-2.6
 
 cd
 # install stunnel
-apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
 client = no
@@ -231,35 +233,32 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 [dropbear]
-accept = 222
-connect = 127.0.0.1:22
+accept = 447
+connect = 127.0.0.1:109
 
 [dropbear]
 accept = 777
-connect = 127.0.0.1:109
-
-#[ws-stunnel]
-#accept = 2083
-#connect = 700
-[ws-stunnel]
-accept = 2096
-connect = 700
+connect = 127.0.0.1:22
 
 [openvpn]
 accept = 442
 connect = 127.0.0.1:1194
 
+[stunnelws]
+accept = 222
+connect = 700
 END
 
 # make a certificate
-openssl genrsa -out key.pem 2048
+openssl genrsa -out key.pem 2048  >/dev/null 2>&1
 openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
--subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
+-subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"  >/dev/null 2>&1
 cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
 
 # konfigurasi stunnel
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-/etc/init.d/stunnel4 restart
+/etc/init.d/stunnel4 restart >/dev/null 2>&1
+
 
 #OpenVPN
 wget https://raw.githubusercontent.com/Deriandri/andri/main/install/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
@@ -419,6 +418,30 @@ apt autoremove -y >/dev/null 2>&1
 # finishing
 cd
 chown -R www-data:www-data /home/vps/public_html
+sleep 0.5
+echo -e "$yell[SERVICE]$NC Restart All service SSH & OVPN"
+/etc/init.d/nginx restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting nginx"
+/etc/init.d/openvpn restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting cron "
+/etc/init.d/ssh restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting ssh "
+/etc/init.d/dropbear restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting dropbear "
+/etc/init.d/fail2ban restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting fail2ban "
+/etc/init.d/stunnel4 restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting stunnel4 "
+/etc/init.d/vnstat restart >/dev/null 2>&1
+sleep 0.5
+echo -e "[ ${green}ok${NC} ] Restarting vnstat "
+/etc/init.d/squid restart >/dev/null 2>&1
 
 rm -f /root/key.pem
 rm -f /root/cert.pem
